@@ -1,5 +1,83 @@
-* {
+@import '~loaders.css/src/animations/line-scale.scss';
+
+*{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+
+
+ul#SliderList {
+  position: relative;
+
+  li.image-container{
+    width: 100vw;
+    height: 100vh;
+    background: blue no-repeat center /100% 100%;
+  }
+
+  li.navigation-container{
+    width: 100%;
+    position: absolute;
+    top:50%;
+
+    nav{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .control-container{
+        display: inline-block;
+        //border-radius: 50%;
+
+        .slide-control {
+          display: inline-block;
+          width:40px;
+          height:40px;
+          transition: .5s;
+        }
+
+        &.previous{
+          margin-left: 3%;
+
+          .slide-control {
+            border-left: 7px solid darkgray;
+            border-bottom: 7px solid darkgray;
+            //border-bottom-left-radius: 7px;
+            transform: rotate(45deg) skew(5deg,5deg);
+
+            &:hover{
+              border-color: white;
+              transform: rotate(45deg) skew(-12deg,-12deg);
+
+            }
+          }
+        }
+
+        &.next{
+          margin-right: 3%;
+
+          .slide-control {
+            border-right: 7px solid darkgray;
+            border-bottom: 7px solid darkgray;
+            //border-bottom-right-radius: 7px;
+            transform: rotate(-45deg) skew(-5deg,-5deg);
+
+            &:hover{
+              border-color: white;
+              transform: rotate(-45deg) skew(12deg,12deg);
+            }
+          }
+        }
+
+
+      }
+    }
+
+  }
+
+  li.dots-container{
+    display: none;
+  }
 }
